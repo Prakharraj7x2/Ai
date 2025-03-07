@@ -1,0 +1,411 @@
+
+body {
+  background-color: #ffeef5;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(#ffb6c1 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* Cherry Blossom Blob Animation */
+#Oval {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  margin-top: 30px;
+}
+
+.blob-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.blob {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0px 4px 10px rgba(255, 128, 171, 0.5));
+}
+
+.blossoms {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: floating 4s infinite ease-in-out;
+}
+
+/* Generate decorative flowers */
+@keyframes flowerFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Chat container styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff80ab;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(255, 128, 171, 0.4);
+  font-size: 2.5rem;
+  animation: floating 4s infinite ease-in-out;
+}
+
+.chat-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 128, 171, 0.4);
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid #ff80ab;
+}
+
+.chat-history {
+  height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #ff80ab;
+  box-shadow: 0 0 10px rgba(255, 128, 171, 0.3);
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-message {
+  margin-left: auto;
+  background-color: #80bdff;
+  color: #003366;
+  border-radius: 15px 15px 0 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ai-message {
+  margin-right: auto;
+  background-color: #ffddee;
+  color: #660033;
+  border-left: 3px solid #ff80ab;
+  border-radius: 15px 15px 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-content {
+  word-wrap: break-word;
+}
+
+/* Custom Input Field Styling */
+.input-container {
+  display: flex;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#TextInput {
+  background-color: #181818a8;
+  border-color: #ff80ab;
+  box-shadow: 0 0 20px rgb(255, 128, 171),
+    inset 0 0 0px rgb(255, 128, 171);
+  border-radius: 8px;
+  color: white;
+  padding: 3px 20px;
+  margin: 0px 20px;
+  width: calc(100% - 40px);
+}
+
+.input-field {
+  background-color: transparent;
+  border: none;
+  width: 95%;
+  outline: none;
+  color: white;
+  font-family: cursive;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #ff80ab;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #181818a8;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 128, 171, 0.8);
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Glow button effects */
+.btn-pink {
+  background-color: #ff80ab;
+  color: white;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  background-color: #f06292;
+  box-shadow: 0 0 15px rgba(255, 128, 171, 0.8);
+  color: white;
+}
+
+.btn-pink:active {
+  background-color: #e91e63;
+  transform: scale(0.98);
+}
+
+.send-btn, .mic-btn {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.send-btn {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mic-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.send-btn:before, .mic-btn:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.send-btn:active, .mic-btn:active {
+  color: #181818a8;
+}
+
+.send-btn:active:after, .mic-btn:active:after {
+  background: transparent;
+}
+
+.send-btn:hover:before, .mic-btn:hover:before {
+  opacity: 1;
+}
+
+.send-btn:after, .mic-btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.hair {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+}
+
+.hidden-elements {
+  display: none;
+}
+
+.expander-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.expander-header {
+  background-color: #f0f0f0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.expander-content {
+  display: none; /* Initially hidden */
+}
+
+.expander-content p {
+  margin-bottom: 5px;
+}
+
+#status {
+  color: #ff80ab;
+  font-style: italic;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Enhanced Glowing Flower Animation */
+.flower {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  z-index: -1;
+}
+
+.flower-petal {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: #ff80ab;
+  border-radius: 50% 50% 0 50%;
+  transform-origin: center;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 10px rgba(255, 128, 171, 0.95));
+  animation: glowPink 3s ease-in-out infinite alternate;
+}
+
+@keyframes glowPink {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(255, 128, 171, 0.9));
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 128, 171, 1));
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    filter: drop-shadow(0 0 12px rgba(255, 128, 171, 0.95));
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.flower-petal:nth-child(1) { transform: rotate(0deg) translate(10px, 0); animation-delay: 0s; }
+.flower-petal:nth-child(2) { transform: rotate(90deg) translate(10px, 0); animation-delay: 0.7s; }
+.flower-petal:nth-child(3) { transform: rotate(180deg) translate(10px, 0); animation-delay: 1.4s; }
+.flower-petal:nth-child(4) { transform: rotate(270deg) translate(10px, 0); animation-delay: 2.1s; }
+.flower-petal:nth-child(5) { transform: rotate(45deg) translate(14px, 0); animation-delay: 0.35s; }
+.flower-petal:nth-child(6) { transform: rotate(135deg) translate(14px, 0); animation-delay: 1.05s; }
+.flower-petal:nth-child(7) { transform: rotate(225deg) translate(14px, 0); animation-delay: 1.75s; }
+.flower-petal:nth-child(8) { transform: rotate(315deg) translate(14px, 0); animation-delay: 2.45s; }
+
+.flower-center {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  top: 19px;
+  left: 19px;
+  filter: drop-shadow(0 0 7px rgba(255, 255, 255, 1));
+  animation: centerPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes centerPulse {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+    transform: scale(1.2);
+  }
+  100% {
+    filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.95));
+    transform: scale(1);
+  }
+}
+
+/* Enhanced grass to match your glowing plants image */
+.grass {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  z-index: -1;
+}
+
+.grass-blade {
+  position: absolute;
+  width: 6px;
+  height: 90px;
+  background: linear-gradient(to top, #00aa33, #44ffaa);
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 140, 0.9));
+  animation: grassGlow 3s infinite alternate ease-in-out;
+}
+
+@keyframes grassGlow {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 140, 0.8));
+    height: 85px;
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(0, 255, 140, 1));
+    height: 95px;
+  }
+  100% {
+    filter: drop-shadow(0 0 10px rgba(0, 255, 140, 0.9));
+    height: 88px;
+  }
+}
